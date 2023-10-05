@@ -34,6 +34,7 @@ COPY --from=builder /opt/keycloak/providers/ /opt/keycloak/providers/
 COPY --from=builder /opt/keycloak/conf/cache-ispn-jdbc-ping.xml /opt/keycloak/conf/cache-ispn-jdbc-ping.xml
 #COPY --from=builder /opt/keycloak/conf/quarkus.properties /opt/keycloak/conf/quarkus.properties
 #COPY --from=builder /opt/keycloak/conf/keycloak.conf /opt/keycloak/conf/keycloak.conf
+COPY --from=ghcr.io/exodus/sops-age /app/sops /app/age /usr/bin
 
 WORKDIR /opt/keycloak
 # this cert shouldn't be used, as it's just to stop the startup from complaining
